@@ -1,4 +1,4 @@
-# omc_BankIsrael
+# omc_BankIsrael_API
  Task in php - fetch information from the Bank of Israel on usd, eur, gbp currencies
 Technologies Used
 HTML: For the structure and layout of the web pages.
