@@ -54,12 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rateDate = $currencyData['date'];
         $rate = $currencyData['rate'];
 
-        $stmt = $conn->prepare("INSERT INTO currencies (name) VALUES (?)");
+        $stmt = $conn->prepare("REPLACE INTO currencies (name) VALUES (?)");
         $stmt->bind_param("s", $currency);
         $stmt->execute();
+        
         $currencyId = $conn->insert_id;
 
-        $stmt = $conn->prepare("INSERT INTO exchange_rates (currency_id, date, rate) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO exchange_rates (currency, date, rate) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $currencyId, $rateDate, $rate);
         $stmt->execute();
     }
